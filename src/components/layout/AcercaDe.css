@@ -1,0 +1,128 @@
+/* --- Estilos para la sección de "Acerca De" --- */
+
+.acerca-de {
+  display: flex;
+  justify-content: center;
+
+  /* -- grilla de la sección -- */
+  .grid {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1.7fr 2fr;
+    gap: clamp(20px, 3vw, 40px);
+
+    /* -- columna de las fotos -- */
+    .col-1 {
+      /* -- el contenedor de fotos -- */
+      .fotos {
+        display: flex;
+        justify-content: flex-end;
+        position: sticky;
+        top: 20px;
+
+        /* -- foto -- */
+        .foto {
+          padding: 6px;
+          border-radius: 10px;
+          border: solid 1px var(--shade-2);
+
+          .dark & {
+            /* borde de las fotos al estar en modo oscuro */
+            border: solid 1px var(--shade-8);
+          }
+
+          /* - foto 1 - */
+          &:nth-child(1) {
+            width: 80%;
+          }
+          /* - foto 2 - */
+          &:nth-child(2) {
+            width: 40%;
+            position: absolute;
+            left: 0;
+            bottom: -15%;
+          }
+        }
+      }
+    }
+
+    /* -- columan de texto -- */
+    .col-2 {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: 20px;
+
+      /* -- pre-titulo -- */
+      .pre-titulo {
+        color: var(--primario);
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      /* -- titulo -- */
+      .titulo {
+        font-size: 30px;
+      }
+
+      /* -- resumen -- */
+      .resumen {
+        color: var(--shade-7);
+        line-height: 32px;
+
+        br {
+          margin-bottom: 20px;
+        }
+
+        /* -- texto del resumen en modo dark */
+        .dark & {
+          color: var(--shade-4);
+        }
+      }
+    }
+  }
+
+  /* -- diseño responsivo para "Acerca De" -- */
+  @media (max-width: 576px) {
+    & {
+      /* -- grilla de la sección -- */
+      .grid {
+        grid-template-columns: 1fr;
+
+        /* -- columna de las fotos -- */
+        .col-1 {
+          /* -- el contenedor de fotos -- */
+          .fotos {
+            margin-bottom: 60px;
+            justify-content: center;
+
+            /* -- foto -- */
+            .foto {
+              /* - foto 1 - */
+              &:nth-child(1) {
+                width: 60%;
+              }
+
+              /* - foto 2 - */
+              &:nth-child(2) {
+                width: 40%;
+                left: 55%;
+                bottom: -20%;
+              }
+            }
+          }
+        }
+
+        /* -- columan de texto -- */
+        .col-2 {
+            align-items: center;
+          /* - pre-titulo y titulo */
+          .pre-titulo,
+          .titulo {
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}

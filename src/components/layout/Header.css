@@ -1,0 +1,75 @@
+/* Estilos para el header */
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 2rem;
+  align-items: center;
+  padding: 4rem 0;
+
+  /* Estilos para el logo */
+  .logo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .titulo {
+      font-size: 3.4rem;
+      font-family: "Merriweather", serif;
+      color: var(--shade-8);
+
+      .dark &{
+        color: var(--shade-1);
+      }
+    }
+
+    .subtitulo {
+      font-size: 1.6rem;
+      color: var(--primario);
+      font-weight: 500;
+
+      .dark &{
+        color: var(--primario);
+      }
+    }
+  }
+
+  /* Estilos para el navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  /* Cuando el tamaño de la pantalla sea menor a 768px */
+  @media (max-width: 768px) {
+    & {
+      .logo {
+        grid-column: span 3;
+        text-align: center;
+        /* El logo cubre 3 columnas y el texto 
+        se pasa al centro */
+      }
+
+      .navbar {
+        grid-column: span 2;
+        justify-content: flex-start;
+        gap: 1.5rem;
+        /* El navbar cubre 2 columnas, el contenido pasa 
+        a la izquierda y la separación de los elementos 
+        es de 15px */
+      }
+    }
+  }
+
+  /* Cuendo el tamaña de la pantalla sea menor a 576px */
+  @media (max-width: 576px){
+    &{
+        display: flex;
+        flex-direction: column; /* Los elementos pasan al orden de columna */
+        align-items: center; /* Elementos alineados al centro */
+    }
+  }
+}

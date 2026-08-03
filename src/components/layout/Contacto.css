@@ -1,0 +1,111 @@
+/* --- Estilos para el formulario de contacto ---  */
+.contacto {
+  /* --- El formulario --- */
+  .formulario {
+    width: 70%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    /* -- Los grupos del formulario */
+    .grupo-formulario {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      /* textarea para el mensaje */
+      &.mensaje {
+        grid-column: span 2;
+        justify-content: center;
+        align-items: center;
+
+
+      }
+
+      /* - mensaje de error */
+      &.error {
+        grid-column: span 2;
+        background: var(--primario);
+        color: white;
+        padding: 16px;
+        border-radius: 5px;
+        font-weight: 500;
+      }
+
+      /* - botón para enviar el formulario - */
+      &.enviar {
+        grid-column: span 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .boton{
+            .icono{
+                svg{
+                    width: 100%;
+                }
+            }
+        }
+      }
+
+      /* labels */
+      label {
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      /* - inputs y textarea - */
+      input,
+      textarea {
+        width: 90%;
+        padding: 15px;
+        border-radius: 5px;
+        border: none;
+        font-size: 16px;
+        font-family: "inter", sans-serif;
+      }
+
+      input:hover,
+      textarea:hover,
+      input:focus,
+      textarea:focus {
+        outline: 2px solid var(--primario);
+      }
+
+      /* - tamaño para el textarea - */
+      textarea {
+        resize: vertical;
+        min-height: 80px;
+        max-height: 200px;
+      }
+
+      /* -- modo oscuro -- */
+      .dark & input,
+      .dark & textarea {
+        background: var(--shade-10);
+        color: var(--shade-1);
+      }
+    }
+
+    /* -- Diseño responsivo -- */
+    @media (max-width: 768px) {
+      & {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 576px) {
+      & {
+        grid-template-columns: 1fr;
+
+        .grupo-formulario {
+          &.mensaje,
+          &.error,
+          &.enviar {
+            grid-column: span 1;
+          }
+        }
+      }
+    }
+  }
+}
